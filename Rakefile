@@ -19,5 +19,5 @@ end
 desc 'Generates a dummy app for testing'
 task :test_app do
   ENV['LIB_NAME'] = 'spree/auth'
-  Rake::Task['common:test_app'].invoke("Spree::User")
+  Rake::Task['common:test_app'].invoke("User")
 end

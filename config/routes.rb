@@ -1,6 +1,6 @@
 Spree::Core::Engine.routes.draw do
   devise_for :user,
-             :class_name => 'Spree::User',
+             :class_name => 'User',
              :controllers => { :sessions => 'spree/user_sessions',
                                :registrations => 'spree/user_registrations',
                                :passwords => 'spree/user_passwords' },

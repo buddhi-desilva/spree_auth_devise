@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def up
-    unless table_exists?("spree_users")
-      create_table "spree_users", :force => true do |t|
+    unless table_exists?("users")
+      create_table "users", :force => true do |t|
         t.string   "crypted_password",          :limit => 128
         t.string   "salt",                      :limit => 128
         t.string   "email"

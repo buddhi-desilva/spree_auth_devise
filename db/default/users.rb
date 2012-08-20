@@ -50,12 +50,12 @@ def create_admin_user
     :login => email
   }
 
-  load 'spree/user.rb'
+  load 'user.rb'
 
-  if Spree::User.find_by_email(email)
+  if User.find_by_email(email)
     say "\nWARNING: There is already a user with the email: #{email}, so no account changes were made.  If you wish to create an additional admin user, please run rake spree_auth:admin:create again with a different email.\n\n"
   else
-    admin = Spree::User.create(attributes)
+    admin = User.create(attributes)
     # create an admin role and and assign the admin user to that role
     role = Spree::Role.find_or_create_by_name 'admin'
     admin.spree_roles << role
@@ -63,7 +63,7 @@ def create_admin_user
   end
 end
 
-if Spree::User.admin.empty?
+if User.admin.empty?
   create_admin_user
 else
   puts 'Admin user has already been previously created.'
