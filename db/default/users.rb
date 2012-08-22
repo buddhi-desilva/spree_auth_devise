@@ -74,3 +74,8 @@ else
   end
 end
 
+
+# Create refinery roles
+Spree::Role.find_or_create_by_name 'refinery'
+Spree::Role.find_or_create_by_name 'superuser'
+

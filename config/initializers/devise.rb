@@ -139,4 +139,8 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 6.hours
   config.sign_out_via = :get
+
+  # Added for Refinery auth
+  config.authentication_keys = [ :email ]
+  config.router_name = :spree
 end
