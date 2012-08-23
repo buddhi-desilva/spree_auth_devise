@@ -1,3 +1,7 @@
+# Create refinery roles
+Spree::Role.find_or_create_by_name 'refinery'
+Spree::Role.find_or_create_by_name 'superuser'
+
 require 'highline/import'
 
 # see last line where we create an admin if there is none, asking for email and password
@@ -59,6 +63,11 @@ def create_admin_user
     # create an admin role and and assign the admin user to that role
     role = Spree::Role.find_or_create_by_name 'admin'
     admin.spree_roles << role
+
+    # add refinery roles
+    admin.spree_roles << Spree::Role[:refinery]
+    admin.spree_roles << Spree::Role[:superuser]
+
     admin.save
   end
 end
@@ -73,9 +82,4 @@ else
     puts 'No admin user created.'
   end
 end
-
-
-# Create refinery roles
-Spree::Role.find_or_create_by_name 'refinery'
-Spree::Role.find_or_create_by_name 'superuser'
 
